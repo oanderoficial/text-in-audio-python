@@ -1,7 +1,7 @@
 # text-in-audio-python
 Transformando texto em audio em Python com a biblioteca pyttsx3.
 
-```
+```python
 import pyttsx3
 
 leitura = open('/home/ander/Documentos/IA/ia', encoding="utf8")
