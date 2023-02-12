@@ -1,18 +1,17 @@
 import pyttsx3
 
-leitura = open('/home/ander/Documentos/IA/ia', encoding="utf8")
-nome = pyttsx3.init()
-voices = nome.getProperty('voices')
+def speak_text_from_file(file_path):
+    with open(file_path, encoding="utf8") as file:
+        text = file.read()
+    engine = pyttsx3.init()
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[1].id)
+    engine.setProperty('rate', engine.getProperty('rate') - 35)
+    engine.setProperty('volume', 3)
+    engine.setProperty('voice', b'brazil')
 
-nome.setProperty('voice', voices[1].id)
-rate = nome.getProperty('rate')
-nome.setProperty('rate', rate-35)
-nome.setProperty('volume', 3)
-nome.setProperty('voice', b'brazil')
+    print(text)
+    engine.say(text)
+    engine.runAndWait()
 
-text = leitura.read()
-
-print(text)
-nome.say(text)
-nome.runAndWait()
-leitura.close()
+speak_text_from_file('/home/ander/Documentos/IA/ia')
