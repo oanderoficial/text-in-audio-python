@@ -1,0 +1,22 @@
+name: text-in-audio-python
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  installing-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Python packet
+        uses: actions/setup-python@v2 
+
+      - name: Install dependencies 
+        run: |
+          python -m pip install --upgrade pip 
+          python -m pip install --upgrade setuptools
+          pip install pyttsx3
